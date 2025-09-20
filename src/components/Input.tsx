@@ -28,15 +28,19 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           type={inputType}
           className={`
-                        w-full px-4 py-3 rounded-lg border border-secondary-900 text-base
-                        focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary
-                        transition-colors disabled:opacity-50 disabled:cursor-not-allowed
-                        ${icon ? "pl-10" : ""} ${
-            error ? "border-red-500 focus:ring-red-500" : ""
-          } 
-                        ${isPassword ? "pr-10" : ""} ${className ?? ""}
-                        ${isNumber ? "appearance-none" : ""} 
-                    `}
+    w-full px-4 py-3 rounded-lg border border-secondary-900 text-base
+    focus:outline-none bg-white focus:bg-white focus:ring-1 focus:ring-black focus:border-black disabled:opacity-50 disabled:cursor-not-allowed
+    ${icon ? "pl-10" : ""} 
+    ${error ? "border-red-500 focus:ring-red-500" : ""}
+    ${isPassword ? "pr-10" : ""} 
+    ${className ?? ""}
+    ${
+      isNumber
+        ? "appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+        : ""
+    }
+    ${inputType === "email" ? "focus:bg-white" : "focus:bg-white"}
+  `}
           {...props}
         />
 
