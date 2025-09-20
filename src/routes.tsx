@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import type { RouteObject } from 'react-router-dom';
+import MainLayout from './layouts/MainLayout';
 // import LoadingSpinner from '@/components/LoadingSpinner';
 // import ProtectedRoute from '@/components/ProtectedRoute';
 // import MainLayout from '@/layouts/MainLayout';
@@ -29,34 +30,31 @@ export const routes: RouteObject[] = [
         path: '/sign-in',
         element: Loadable(Login), // public route
     },
+
     {
         path: '/',
-        element: Loadable(Dashboard), // public route
+        element: (
+            // <ProtectedRoute>
+            <MainLayout />
+            // </ProtectedRoute>
+        ), // protected layout
+        children: [
+            { path: '/', element: Loadable(Dashboard) },
+            { path: 'dashboard', element: Loadable(Dashboard) },
+            // { path: 'users', element: Loadable(Users) },
+            // {       
+            //     path: 'numbers',
+            //     element: <ProtectedRoute><Loadable(NumbersLayout) /></ProtectedRoute>,
+            //     children: [
+            //         { path: '', element: <div>Select a number</div> }, // default
+            //         { path: 'add', element: <Loadable(AddNumber) /> },
+            //         { path: ':id', element: <Loadable(NumberDetails) /> },
+            //         { path: 'settings', element: <Loadable(NumbersSettings) /> },
+            //     ],
+            // },
+            // { path: 'contacts', element: Loadable(Contacts) },
+            // { path: 'settings', element: Loadable(Settings) },
+        ],
     },
-    //     {
-    //         path: '/',
-    //         element: (
-    //             <ProtectedRoute>
-    //                 <MainLayout />
-    //             </ProtectedRoute>
-    //         ), // protected layout
-    //         children: [
-    //             { path: '/', element: Loadable(Dashboard) },
-    //             { path: 'dashboard', element: Loadable(Dashboard) },
-    //             { path: 'users', element: Loadable(Users) },
-    //             {
-    //                 path: 'numbers',
-    //                 element: <ProtectedRoute><Loadable(NumbersLayout) /></ProtectedRoute>,
-    //                 children: [
-    //                     { path: '', element: <div>Select a number</div> }, // default
-    //                     { path: 'add', element: <Loadable(AddNumber) /> },
-    //             { path: ':id', element: <Loadable(NumberDetails) /> },
-    //     { path: 'settings', element: <Loadable(NumbersSettings) /> },
-    //         ],
-    //       },
-    // { path: 'contacts', element: Loadable(Contacts) },
-    // { path: 'settings', element: Loadable(Settings) },
-    //     ],
-    //   },
     // { path: '*', element: Loadable(NotFound) },
 ];

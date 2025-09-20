@@ -22,6 +22,13 @@ export default {
           900: "#604ED5",
           DEFAULT: "var(--primary)",
         },
+        gray: {
+          900: "#13102B",
+        },
+        white: {
+          100: "#ffffff",
+        },
+
         success: {
           100: "#DDFCE5",
           200: "#D3FBFA",
