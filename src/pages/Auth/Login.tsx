@@ -4,7 +4,12 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import AuthLayout from "@/layouts/AuthLayout";
 import { Input } from "@/components/Input";
+import { Image } from "@/components/Image";
 import loginImage from "@/assets/images/sign-in.png";
+// import googleIcon from "@/assets/images/icon/google.svg";
+import Button from "@/components/Button";
+import { Link } from "react-router-dom";
+
 // import { Button } from "@/components/ui/button";
 
 // Zod schema for validation
@@ -31,9 +36,29 @@ export default function LoginPage() {
       overlayTitle="Welcome to Teldrip"
       overlaySubtitle="Sign in to continue"
     >
+      <h5 className="text-center font-medium text-black text-xl mb-5">
+        Sign in
+      </h5>
+      <button className="mb-5 text-center text-base bg-secondary-300 rounded-lg w-full px-4 py-3 text-primary-500">
+        {/* <Image
+          src="../assets/images/icon/google.svg"
+          alt="Logo"
+          width={20}
+          height={20}
+        />{" "} */}
+        Continue with Google
+      </button>{" "}
+      <div className="flex items-center gap-2 pb-5">
+        <div className="h-px w-full flex-1 rounded-md bg-red from-white via-primary-400/50 to-white border border-line-gradient" />
+        <p className="text-xs font-normal text-primary-400">Or Use Email</p>
+        <div className="h-px w-full flex-1 rounded-md line-gradient bg-red from-white  border border-line-gradient" />
+      </div>
+      <h5 className="text-base text-primary-500 pb-4">
+        Enter your details to continue.
+      </h5>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="space-y-6 w-full"
+        className="space-y-5 w-full"
         noValidate
       >
         <div>
@@ -68,11 +93,24 @@ export default function LoginPage() {
               {formState.errors.password.message}
             </p>
           )}
+          <div className="pt-1 text-right text-primary-900 text-sm">
+            <Link href={"#"}>Forgot Password?</Link>
+          </div>
         </div>
 
-        {/* <Button type="submit" className="w-full">
-                    Login
-                </Button> */}
+        {/* <button
+          type="submit"
+          className="w-full bg-primary-900 py-3 rounded-lg text-base text-white-100 hover:bg-[#4D3EAA]"
+        >
+          Login
+        </button> */}
+        <Button label={"Login"} />
+        <p className="-mt-2 text-center text-sm text-primary-400">
+          Don’t have an account?&nbsp;
+          <Link href={"#"} className="text-primary">
+            Sign up
+          </Link>
+        </p>
       </form>
     </AuthLayout>
   );

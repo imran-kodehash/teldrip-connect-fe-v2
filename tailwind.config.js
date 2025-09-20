@@ -90,7 +90,12 @@ export default {
       },
       boxShadow: {
         "custom-soft": "2px 2px 2px 0 rgba(245, 245, 245, 0.5)",
+        "shadow-lg":
+          "148px 402px 120px 0 rgba(95, 78, 213, 0.00), 95px 257px 110px 0 rgba(95, 78, 213, 0.01), 24px 64px 69px 0 rgba(95, 78, 213, 0.09), 6px 16px 38px 0 rgba(95, 78, 213, 0.10)",
+        "line-gradient":
+          "linear-gradient(90deg, rgba(153,153,153,0) 0%, #FFF 100%)",
       },
+
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
