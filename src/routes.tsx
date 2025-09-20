@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import type { RouteObject } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
+import PageLoader from './components/loaders/PageLoader';
 // import LoadingSpinner from '@/components/LoadingSpinner';
 // import ProtectedRoute from '@/components/ProtectedRoute';
 // import MainLayout from '@/layouts/MainLayout';
@@ -9,7 +10,7 @@ const Login = lazy(() => import('@/pages/Auth/Login'));
 const Dashboard = lazy(() => import('@/pages/Dashboard'));
 // const Users = lazy(() => import('@/pages/Dashboard/Users'));
 // const Contacts = lazy(() => import('@/pages/Dashboard/Contacts'));
-// const Settings = lazy(() => import('@/pages/Dashboard/Settings'));
+const Settings = lazy(() => import('@/pages/Settings'));
 // const NotFound = lazy(() => import('@/pages/NotFound'));
 
 // Numbers module
@@ -19,7 +20,7 @@ const Dashboard = lazy(() => import('@/pages/Dashboard'));
 // const NumbersSettings = lazy(() => import('@/pages/Dashboard/Numbers/NumbersSettings'));
 
 const Loadable = (Component: React.LazyExoticComponent<() => any>) => (
-    <Suspense fallback={<h1>Loading...</h1>}>
+    <Suspense fallback={<PageLoader />}>
         <Component />
     </Suspense>
 );
@@ -53,7 +54,7 @@ export const routes: RouteObject[] = [
             //     ],
             // },
             // { path: 'contacts', element: Loadable(Contacts) },
-            // { path: 'settings', element: Loadable(Settings) },
+            { path: 'settings', element: Loadable(Settings) },
         ],
     },
     // { path: '*', element: Loadable(NotFound) },

@@ -1,21 +1,8 @@
 import React, { useMemo } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-
 import Logo from "../assets/images/logo.svg";
-import {
-  LayoutGrid,
-  Users,
-  Mailbox,
-  PhoneCall,
-  Notebook,
-  Wallet,
-  Bell,
-  Volume2,
-  Settings,
-  Power,
-} from "lucide-react";
-import { toast } from "sonner";
 import { Image } from "./Image";
+import { sidebarBottomMenu, sidebarTopMenu } from "@/data/sidebar";
 
 type MenuItem = {
   title: string;
@@ -30,71 +17,10 @@ export default function Sidebar() {
   const location = useLocation();
 
   // Top menu items
-  const topMenu: MenuItem[] = useMemo(
-    () => [
-      {
-        title: "Dashboard",
-        label: "Dashboard",
-        icon: LayoutGrid,
-        link: "/dashboard",
-      },
-      {
-        title: "Call Logs",
-        label: "Call Logs",
-        icon: PhoneCall,
-        link: "/collogs",
-      },
-      { title: "Inbox", label: "Inbox", icon: Mailbox, link: "/inbox" },
-      {
-        title: "Contacts",
-        label: "Contacts",
-        icon: Notebook,
-        link: "/contacts",
-      },
-      {
-        title: "Campaigns",
-        label: "Campaigns",
-        icon: Volume2,
-        link: "/campaigns",
-      },
-      { title: "Users", label: "Users", icon: Users, link: "/users" },
-      { title: "Number", label: "Number", icon: PhoneCall, link: "/number" },
-      { title: "Plans", label: "Plans", icon: Wallet, link: "/plans" },
-    ],
-    []
-  );
+  const topMenu: MenuItem[] = useMemo(() => sidebarTopMenu, []);
 
   // Bottom menu items
-  const bottomMenu: MenuItem[] = useMemo(
-    () => [
-      {
-        title: "Settings",
-        label: "Settings",
-        icon: Settings,
-        link: "/settings",
-      },
-      {
-        title: "Notifications",
-        label: "Notifications",
-        icon: Bell,
-        link: "/notifications",
-        number: "4",
-      },
-      {
-        title: "Logout",
-        label: "Logout",
-        icon: Power,
-        action: () => {
-          if (confirm("Are you sure you want to logout?")) {
-            toast("Logged out successfully!", { type: "success" });
-            localStorage.clear();
-            window.location.href = "/login";
-          }
-        },
-      },
-    ],
-    []
-  );
+  const bottomMenu: MenuItem[] = useMemo(() => sidebarBottomMenu, []);
 
   // Render Menu Item
   const renderMenuItem = (item: MenuItem) => {
@@ -110,11 +36,10 @@ export default function Sidebar() {
           to={item.link}
           className={`flex items-center text-gray-900  gap-3 px-4 py-3 text-base font-normal rounded-xl mx-6 my-1
           transition-colors duration-200 group
-          ${
-            isActive
+          ${isActive
               ? "bg-primary-900 text-white-100"
               : "hover:bg-[#4D3EAA] hover:text-white-100"
-          }`}
+            }`}
         >
           <Icon className="w-5 h-5" />
           <span>{item.label}</span>

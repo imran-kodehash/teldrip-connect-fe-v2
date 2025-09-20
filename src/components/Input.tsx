@@ -34,11 +34,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     ${error ? "border-red-500 focus:ring-red-500" : ""}
     ${isPassword ? "pr-10" : ""} 
     ${className ?? ""}
-    ${
-      isNumber
-        ? "appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-        : ""
-    }
+    ${isNumber
+              ? "appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+              : ""
+            }
     ${inputType === "email" ? "focus:bg-white" : "focus:bg-white"}
   `}
           {...props}
