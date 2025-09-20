@@ -102,9 +102,7 @@ export default function Sidebar() {
     <aside className="flex flex-col justify-between w-64 bg-white-100 border-r border-secondary-900  text-sidebar-foreground h-screen">
       {/* Top section */}
       <div className="flex flex-col pt-4">
-        <div className="px-4 pb-4 font-bold text-lg border-b border-sidebar-border">
-          MyApp
-        </div>
+        <div className="px-8 pb-4 font-bold text-lg">Logo</div>
         <nav className="flex-1 overflow-auto mt-4">
           {topMenu.map(renderMenuItem)}
         </nav>
