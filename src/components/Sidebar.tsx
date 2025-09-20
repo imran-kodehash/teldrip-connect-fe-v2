@@ -1,5 +1,7 @@
 import React, { useMemo } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+
+import Logo from "../assets/images/logo.svg";
 import {
   LayoutGrid,
   Users,
@@ -13,12 +15,14 @@ import {
   Power,
 } from "lucide-react";
 import { toast } from "sonner";
+import { Image } from "./Image";
 
 type MenuItem = {
   title: string;
   label: string;
   icon: React.ElementType;
   link?: string;
+  number?: number;
   action?: () => void;
 };
 
@@ -74,6 +78,7 @@ export default function Sidebar() {
         label: "Notifications",
         icon: Bell,
         link: "/notifications",
+        number: "4",
       },
       {
         title: "Logout",
@@ -104,7 +109,7 @@ export default function Sidebar() {
           key={item.title}
           to={item.link}
           className={`flex items-center text-gray-900  gap-3 px-4 py-3 text-base font-normal rounded-xl mx-6 my-1
-          transition-colors duration-200
+          transition-colors duration-200 group
           ${
             isActive
               ? "bg-primary-900 text-white-100"
@@ -113,6 +118,11 @@ export default function Sidebar() {
         >
           <Icon className="w-5 h-5" />
           <span>{item.label}</span>
+          {item.number !== undefined && (
+            <span className="ml-auto flex group-hover:text-white-100 group-hover:border-white-100 items-center justify-center rounded-full border border-primary-900 bg-primary-300/20  text text-primary-900  text-white text-xs font-semibold w-5 h-5">
+              {item.number}
+            </span>
+          )}
         </NavLink>
       );
     }
@@ -138,7 +148,15 @@ export default function Sidebar() {
     <aside className="flex flex-col justify-between w-64 bg-white-100 border-r border-secondary-900  text-sidebar-foreground h-screen">
       {/* Top section */}
       <div className="flex flex-col pt-4">
-        <div className="px-8 pb-4 font-bold text-lg">Logo</div>
+        <div className="px-8 pb-2 font-bold text-lg">
+          <Image
+            src={Logo}
+            alt="Logo"
+            width={110}
+            height={35}
+            className="!w-[120px]"
+          />
+        </div>
         <nav className="flex-1 overflow-auto mt-4">
           {topMenu.map(renderMenuItem)}
         </nav>
