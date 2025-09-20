@@ -2,7 +2,8 @@ import { Button } from "@/components/Button"
 import Checkbox from "@/components/Checkbox";
 import RadioButton from "@/components/RadioButton";
 import { SearchableDropdown } from "@/components/SearchableDropdown"
-import { Tabs } from "@/components/Tabs/HorizontalTab";
+import { HorizontalTabs } from "@/components/Tabs/HorizontalTab";
+
 import { VerticalTabs } from "@/components/Tabs/VerticalTab";
 import { showToast } from "@/components/Toast";
 import { useState } from "react"
@@ -70,7 +71,7 @@ const Dashboard = () => {
 
 
 
-            <Tabs
+            <HorizontalTabs
                 initialTab="dashboard"
                 tabs={[
                     {
@@ -153,7 +154,7 @@ const Dashboard = () => {
 
 
 
-            <Tabs
+            <HorizontalTabs
                 initialTab="dashboard"
                 tabs={[
                     {
@@ -236,7 +237,7 @@ const Dashboard = () => {
 
 
 
-            <Tabs
+            <HorizontalTabs
                 initialTab="dashboard"
                 tabs={[
                     {
@@ -319,7 +320,7 @@ const Dashboard = () => {
 
 
 
-            <Tabs
+            <HorizontalTabs
                 initialTab="dashboard"
                 tabs={[
                     {

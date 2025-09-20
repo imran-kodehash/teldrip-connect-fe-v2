@@ -5,10 +5,11 @@ import { Eye, EyeOff } from "lucide-react";
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: string;
   icon?: ReactNode;
+  label?: string;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, error, icon, type = "text", ...props }, ref) => {
+  ({ label, className, error, icon, type = "text", ...props }, ref) => {
     const [showPassword, setShowPassword] = useState(false);
 
     // Toggle password visibility
@@ -23,6 +24,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             {icon}
           </span>
         )}
+
+        {label && <span>{label}</span>}
 
         <input
           ref={ref}
