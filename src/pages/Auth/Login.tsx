@@ -5,13 +5,8 @@ import * as z from "zod";
 import AuthLayout from "@/layouts/AuthLayout";
 import { Input } from "@/components/Input";
 import loginImage from '@/assets/images/sign-in.png';
-// import { Button } from "@/components/ui/button";
-
-// Zod schema for validation
-const loginSchema = z.object({
-    email: z.string().email("Invalid email"),
-    password: z.string().min(6, "Password must be at least 6 characters"),
-});
+import Button from "@/components/Button";
+import type { loginSchema } from "@/schemas/authSchema";
 
 type LoginFormInputs = z.infer<typeof loginSchema>;
 
@@ -66,9 +61,9 @@ export default function LoginPage() {
                     )}
                 </div>
 
-                {/* <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full">
                     Login
-                </Button> */}
+                </Button>
             </form>
         </AuthLayout>
     );
