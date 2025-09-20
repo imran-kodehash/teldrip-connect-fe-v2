@@ -7,6 +7,7 @@ import MainLayout from "./layouts/MainLayout";
 
 const Login = lazy(() => import("@/pages/Auth/Login"));
 const ForgetPassword = lazy(() => import("@/pages/Auth/ForgetPassword"));
+const SignUp = lazy(() => import("@/pages/Auth/Signup"));
 const Dashboard = lazy(() => import("@/pages/Dashboard"));
 // const Users = lazy(() => import('@/pages/Dashboard/Users'));
 // const Contacts = lazy(() => import('@/pages/Dashboard/Contacts'));
@@ -34,6 +35,10 @@ export const routes: RouteObject[] = [
   {
     path: "/forget-password",
     element: Loadable(ForgetPassword), // public route
+  },
+  {
+    path: "/sign-up",
+    element: Loadable(SignUp), // public route
   },
 
   {
