@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: #604ed5;
+    --success: #19bc7b;
+    --error: #ff7070;
+    --primary-foreground: 0 0% 98%;
+    --secondary: #232323;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer utilities {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .page {
+    width: calc(100vw - 18rem);
+  }
+
+  .custom-scrollbar {
+    @apply [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-200 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:rounded-full dark:[&::-webkit-scrollbar-track]:bg-neutral-500 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-300 pr-2;
+  }
+
+  .glassmorphism_effect {
+    @apply rounded-xl border border-white/45 bg-blend-multiply backdrop-blur-sm;
+    background: lightgray 0% 0% / 100px 100px repeat, rgba(255, 255, 255, 0.14);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+.header-right-wrapper [data-radix-popper-content-wrapper] {
+  @apply min-w-max max-w-[20rem] w-full;
+  /* left: -70px !important; */
+  /* left: -70px !important; */
+  left: -10px !important;
+}
+
+.header-center-wrapper {
+  @apply fixed h-full w-full left-0 justify-center items-center flex top-0 z-10 bg-black/50;
+  /* backdrop-blur-sm */
+}
+.header-center-wrapper [data-radix-popper-content-wrapper] {
+  @apply relative;
+  position: relative !important;
+  transform: none !important;
+  left: auto !important;
+  width: 25rem;
+}
+
+.header-right-wrapper.autodial-active [data-radix-popper-content-wrapper] {
+  @apply min-w-max max-w-[40rem] w-full;
+}
+
+.AccordionChevron {
+  transition: transform 300ms;
+}
+
+.AccordionTrigger[data-state="open"] .AccordionChevron {
+  transform: rotate(180deg);
+}
+
+.dropdown-anchor-width [data-radix-popper-content-wrapper] {
+  min-width: var(--radix-popper-anchor-width) !important;
+}
+
+.dialer-action-button-deafult-wrapper {
+  @apply flex justify-between items-end;
+}
+.dialer-action-button-bottom-wrapper {
+  @apply flex justify-between items-end;
+}
+.dialer-bottom-action-button {
+  @apply grid grid-cols-4 gap-2;
+}
+.dialer-bottom-hangup-button {
+  @apply grid grid-cols-1;
+}
