@@ -109,7 +109,7 @@ body {
   }
 
   .glassmorphism_effect {
-    @apply rounded-xl border border-white/45 bg-blend-multiply backdrop-blur-sm;
+    @apply rounded-xl border border-white-100/50 bg-blend-multiply backdrop-blur-sm;
     background: lightgray 0% 0% / 100px 100px repeat, rgba(255, 255, 255, 0.14);
   }
 
@@ -168,4 +168,4 @@ body {
 }
 
 
-.size-full{ width: 100%; height: 100%;}
+.size-full{ width: 100%; height: 100% !important;}

@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import AuthLayout from "@/layouts/AuthLayout";
 import { Input } from "@/components/Input";
-import { Image } from "@/components/Image";
 import loginImage from "@/assets/images/sign-in.png";
 // import googleIcon from "@/assets/images/icon/google.svg";
 import Button from "@/components/Button";
@@ -45,6 +44,7 @@ export default function LoginPage() {
           alt="Logo"
           width={20}
           height={20}
+          className="h-[20px]"
         />{" "} */}
         Continue with Google
       </button>{" "}
@@ -94,16 +94,10 @@ export default function LoginPage() {
             </p>
           )}
           <div className="pt-1 text-right text-primary-900 text-sm">
-            <Link href={"#"}>Forgot Password?</Link>
+            <Link to="/forget-password">Forgot Password?</Link>
           </div>
         </div>
 
-        {/* <button
-          type="submit"
-          className="w-full bg-primary-900 py-3 rounded-lg text-base text-white-100 hover:bg-[#4D3EAA]"
-        >
-          Login
-        </button> */}
         <Button label={"Login"} />
         <p className="-mt-2 text-center text-sm text-primary-400">
           Don’t have an account?&nbsp;

@@ -32,14 +32,20 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({
           width={imageWidth}
           height={imageHeight}
           placeholder={placeholder}
-          className="size-full rounded-lg object-cover object-top"
+          className="size-full rounded-lg h-full object-cover object-top"
         />
         {(overlayTitle || overlaySubtitle) && (
-          <div className="absolute inset-0 m-4 flex flex-col h-[30%] bottom-0 items-center justify-center text-center text-white px-6 bg-black/30">
+          <div className="glassmorphism_effect absolute w-[90%] rounded-lg left-[3%] m-4 flex flex-col py-6 bottom-6 text-left text-white px-6">
             {overlayTitle && (
-              <h1 className="text-4xl font-bold mb-2">{overlayTitle}</h1>
+              <h1 className="text-3xl font-bold text-white-100  mb-2">
+                {overlayTitle}
+              </h1>
             )}
-            {overlaySubtitle && <p className="text-lg">{overlaySubtitle} </p>}
+            {overlaySubtitle && (
+              <p className="text-base font-normal text-white-100">
+                {overlaySubtitle}{" "}
+              </p>
+            )}
           </div>
         )}
       </div>
