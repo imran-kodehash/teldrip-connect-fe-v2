@@ -24,7 +24,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({
   overlaySubtitle,
 }) => {
   return (
-    <div className="flex items-stretch justify-between bg-secondary-200">
+    <div className="flex overflow-hidden items-stretch justify-between bg-secondary-200">
       <div className="relative h-screen p-4 hidden lg:block w-full">
         <Image
           src={imageSrc}
