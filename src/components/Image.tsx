@@ -42,9 +42,9 @@ export function Image({
         decoding="async"
         {...props}
         style={{
-          width: "100%",
-          height: "auto",
-          objectFit: "cover",
+          // width: "100%",
+          // height: "auto",
+          // objectFit: "cover",
           background: placeholder
             ? `url(${placeholder}) center/cover no-repeat`
             : undefined,

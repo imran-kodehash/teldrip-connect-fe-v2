@@ -74,13 +74,7 @@ export default function Sidebar() {
       {/* Top section */}
       <div className="flex flex-col pt-4">
         <div className="px-8 pb-2 font-bold text-lg">
-          <Image
-            src={Logo}
-            alt="Logo"
-            width={110}
-            height={35}
-            className="!w-[120px]"
-          />
+          <Image src={Logo} alt="Logo" width={110} height={35} className=" " />
         </div>
         <nav className="flex-1 overflow-auto mt-4">
           {topMenu.map(renderMenuItem)}

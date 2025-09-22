@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import AuthLayout from "@/layouts/AuthLayout";
 import { Input } from "@/components/Input";
-import signUpImg from "@/assets/images/sign-up.png";
-// import googleIcon from "@/assets/images/icon/google.svg";
+import signUpImg from "@/assets/images/signup.png";
+import googleIcon from "@/assets/images/google-icon.png";
 import fIcon from "@/assets/images/lock.svg";
 import { Button } from "@/components/Button";
 import { Link } from "react-router-dom";
@@ -25,16 +25,16 @@ for Modern Teams"
       <h5 className="text-center font-medium text-black text-xl mb-5">
         Sign Up
       </h5>
-      <button className="mb-5 text-center text-base bg-secondary-300 rounded-lg w-full px-4 py-3 text-primary-500">
-        {/* <Image
-          src="../assets/images/icon/google.svg"
+      <button className="mb-5 flex items-center gap-2 text-center text-base bg-secondary-300 rounded-lg w-full px-4 py-3 text-primary-500 justify-center">
+        <Image
+          src={googleIcon}
           alt="Logo"
           width={20}
           height={20}
-          className="h-[20px]"
-        />{" "} */}
+          className=""
+        />{" "}
         Continue with Google
-      </button>{" "}
+      </button>
       <div className="flex items-center gap-2 pb-5">
         <div className="h-px w-full flex-1 rounded-md bg-red from-white via-primary-400/50 to-white border border-line-gradient" />
         <p className="text-xs font-normal text-primary-400">Or Use Email</p>
