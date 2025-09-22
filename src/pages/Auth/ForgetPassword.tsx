@@ -8,7 +8,7 @@ import forgetImg from "@/assets/images/forgot-password.png";
 // import googleIcon from "@/assets/images/icon/google.svg";
 import fIcon from "@/assets/images/lock.svg";
 import Button from "@/components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Image } from "@/components/Image";
 
 // import { Button } from "@/components/ui/button";
@@ -51,6 +51,9 @@ function ForgetPassword() {
           </div>
 
           <Button label={"Reset Password"} />
+          <p>
+            <Link to="/reset-password">Reset Password </Link>
+          </p>
           <p className="-mt-2 text-center text-sm text-primary-400">
             <Link to="/sign-in" className="text-primary">
               Go Back Sign In
