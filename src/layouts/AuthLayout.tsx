@@ -51,13 +51,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({
       </div>
       <div className="custom-scrollbar h-screen w-full  overflow-auto p-4">
         <div className="mt-8 flex items-center justify-center">
-          <Image
-            src={Logo}
-            alt="Logo"
-            width={140}
-            height={35}
-            className="!w-[150px]"
-          />
+          <Image src={Logo} alt="Logo" width={140} height={35} />
         </div>
         <div className="flex w-full items-center justify-center">
           <div className="flex w-full items-center justify-center p-6 sm:p-12">

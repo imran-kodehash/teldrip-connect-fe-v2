@@ -4,11 +4,14 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import AuthLayout from "@/layouts/AuthLayout";
 import { Input } from "@/components/Input";
-import loginImage from "@/assets/images/sign-in.png";
+import loginImage from "@/assets/images/signup.png";
 
-// import googleIcon from "@/assets/images/icon/google.svg";
+import googleIcon from "@/assets/images/google-icon.png";
 import Button from "@/components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+// import { Image } from "@/components/Image";
+// import { GoalIcon } from "lucide-react";
+import { Image } from "@/components/Image";
 
 // import { Button } from "@/components/ui/button";
 
@@ -37,19 +40,19 @@ export default function LoginPage() {
 for Modern Teams"
       overlaySubtitle="Teldrip Connect automates calling, logs business interactions, and delivers actionable insights—all seamlessly integrated with your favorite workflow tools for effortless communication and productivity."
     >
-      <h5 className="text-center font-medium text-black text-xl mb-5">
+      <h3 className="text-center font-medium text-black text-xl mb-5">
         Sign In
-      </h5>
-      <button className="mb-5 text-center text-base bg-secondary-300 rounded-lg w-full px-4 py-3 text-primary-500">
-        {/* <Image
-          src="../assets/images/icon/google.svg"
+      </h3>{" "}
+      <button className="mb-5 flex items-center gap-2 text-center text-base bg-secondary-300 rounded-lg w-full px-4 py-3 text-primary-500 justify-center">
+        <Image
+          src={googleIcon}
           alt="Logo"
           width={20}
           height={20}
-          className="h-[20px]"
-        />{" "} */}
+          className=""
+        />{" "}
         Continue with Google
-      </button>{" "}
+      </button>
       <div className="flex items-center gap-2 pb-5">
         <div className="h-px w-full flex-1 rounded-md bg-red from-white via-primary-400/50 to-white border border-line-gradient" />
         <p className="text-xs font-normal text-primary-400">Or Use Email</p>
@@ -101,6 +104,11 @@ for Modern Teams"
         </div>
 
         <Button label={"Login"} />
+        <p className="-mt-2 text-center text-sm text-primary-400">
+          <Link to="/otp" className="text-primary">
+            Login{" "}
+          </Link>
+        </p>
         <p className="-mt-2 text-center text-sm text-primary-400">
           Don’t have an account?&nbsp;
           <Link to="/sign-up" className="text-primary">

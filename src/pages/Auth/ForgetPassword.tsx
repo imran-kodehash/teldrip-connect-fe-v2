@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import AuthLayout from "@/layouts/AuthLayout";
 import { Input } from "@/components/Input";
-import forgetImg from "@/assets/images/forgot-password.png";
+import forgetImg from "@/assets/images/forget-password.png";
 // import googleIcon from "@/assets/images/icon/google.svg";
 import fIcon from "@/assets/images/lock.svg";
 import Button from "@/components/Button";
@@ -26,14 +26,14 @@ function ForgetPassword() {
           <Image
             src={fIcon}
             alt="Lock"
-            width={60}
+            width={70}
             height={80}
-            className="!w-[80px] mx-auto"
+            className="mx-auto"
           />
         </div>
-        <h5 className="text-center font-medium text-black text-xl mb-5">
+        <h3 className="text-center font-medium text-black text-xl mb-5">
           Forgot Password?
-        </h5>
+        </h3>
 
         <h5 className="text-base text-primary-500 pb-4">
           No worries, we’ll send you reset link.

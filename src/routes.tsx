@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 import type { RouteObject } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import ResetPassword from "./pages/Auth/ResetPassword";
+import AccountSetup from "./pages/Auth/AccountSetup";
 // import LoadingSpinner from '@/components/LoadingSpinner';
 // import ProtectedRoute from '@/components/ProtectedRoute';
 // import MainLayout from '@/layouts/MainLayout';
@@ -9,7 +10,9 @@ import ResetPassword from "./pages/Auth/ResetPassword";
 const Login = lazy(() => import("@/pages/Auth/Login"));
 const ForgetPassword = lazy(() => import("@/pages/Auth/ForgetPassword"));
 const ResetPassword = lazy(() => import("@/pages/Auth/ResetPassword"));
+const OTP = lazy(() => import("@/pages/Auth/OTP"));
 const SignUp = lazy(() => import("@/pages/Auth/Signup"));
+const AccountSetup = lazy(() => import("@/pages/Auth/AccountSetup"));
 const Dashboard = lazy(() => import("@/pages/Dashboard"));
 // const Users = lazy(() => import('@/pages/Dashboard/Users'));
 // const Contacts = lazy(() => import('@/pages/Dashboard/Contacts'));
@@ -33,6 +36,14 @@ export const routes: RouteObject[] = [
   {
     path: "/sign-in",
     element: Loadable(Login), // public route
+  },
+  {
+    path: "/otp",
+    element: Loadable(OTP), // public route
+  },
+  {
+    path: "/account-setup",
+    element: Loadable(AccountSetup), // public route
   },
   {
     path: "/forget-password",
