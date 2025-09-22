@@ -14,7 +14,7 @@ const RadioButton = memo(
     forwardRef<HTMLInputElement, RadioButtonProps>(
         ({ id, label, name, value, checked, onChange, disabled = false }, ref) => {
             return (
-                <div className="flex items-center mb-4">
+                <div className="flex items-center mb-4 cursor-pointer">
                     <input
                         id={id}
                         type="radio"
@@ -28,7 +28,7 @@ const RadioButton = memo(
                     />
                     <label
                         htmlFor={id}
-                        className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300 "
                     >
                         {label}
                     </label>

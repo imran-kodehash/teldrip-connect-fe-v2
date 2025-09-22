@@ -6,8 +6,10 @@ import PageLoader from './components/loaders/PageLoader';
 // import ProtectedRoute from '@/components/ProtectedRoute';
 // import MainLayout from '@/layouts/MainLayout';
 
-const Login = lazy(() => import('@/pages/Auth/Login'));
-const Dashboard = lazy(() => import('@/pages/Dashboard'));
+const Login = lazy(() => import("@/pages/Auth/Login"));
+const ForgetPassword = lazy(() => import("@/pages/Auth/ForgetPassword"));
+const Dashboard = lazy(() => import("@/pages/Dashboard"));
+const Numbers = lazy(() => import("@/pages/Numbers"));
 // const Users = lazy(() => import('@/pages/Dashboard/Users'));
 // const Contacts = lazy(() => import('@/pages/Dashboard/Contacts'));
 const Settings = lazy(() => import('@/pages/Settings'));
@@ -20,42 +22,45 @@ const Settings = lazy(() => import('@/pages/Settings'));
 // const NumbersSettings = lazy(() => import('@/pages/Dashboard/Numbers/NumbersSettings'));
 
 const Loadable = (Component: React.LazyExoticComponent<() => any>) => (
-    <Suspense fallback={<PageLoader />}>
-        <Component />
-    </Suspense>
+  <Suspense fallback={<PageLoader />}>
+    <Component />
+  </Suspense>
 );
-//whjewej
 
 export const routes: RouteObject[] = [
-    {
-        path: '/sign-in',
-        element: Loadable(Login), // public route
-    },
+  {
+    path: "/sign-in",
+    element: Loadable(Login), // public route
+  },
+  {
+    path: "/forget-password",
+    element: Loadable(ForgetPassword), // public route
+  },
 
-    {
-        path: '/',
-        element: (
-            // <ProtectedRoute>
-            <MainLayout />
-            // </ProtectedRoute>
-        ), // protected layout
+  {
+    path: '/',
+    element: (
+      // <ProtectedRoute>
+      <MainLayout />
+      // </ProtectedRoute>
+    ), // protected layout
+    children: [
+      { path: '/', element: Loadable(Dashboard) },
+      { path: 'dashboard', element: Loadable(Dashboard) },
+      // { path: 'users', element: Loadable(Users) },
+      {
+        path: 'number',
+        element: Loadable(Numbers),
         children: [
-            { path: '/', element: Loadable(Dashboard) },
-            { path: 'dashboard', element: Loadable(Dashboard) },
-            // { path: 'users', element: Loadable(Users) },
-            // {       
-            //     path: 'numbers',
-            //     element: <ProtectedRoute><Loadable(NumbersLayout) /></ProtectedRoute>,
-            //     children: [
-            //         { path: '', element: <div>Select a number</div> }, // default
-            //         { path: 'add', element: <Loadable(AddNumber) /> },
-            //         { path: ':id', element: <Loadable(NumberDetails) /> },
-            //         { path: 'settings', element: <Loadable(NumbersSettings) /> },
-            //     ],
-            // },
-            // { path: 'contacts', element: Loadable(Contacts) },
-            { path: 'settings', element: Loadable(Settings) },
+          { path: '', element: <div>Select a number</div> }, // default
+          //         { path: 'add', element: <Loadable(AddNumber) /> },
+          //     { path: ':id', element: <Loadable(NumberDetails) /> },
+          // { path: 'settings', element: <Loadable(NumbersSettings) /> },
         ],
-    },
-    // { path: '*', element: Loadable(NotFound) },
+      },
+      // { path: 'contacts', element: Loadable(Contacts) },
+      { path: 'settings', element: Loadable(Settings) },
+    ],
+  },
+  // { path: '*', element: Loadable(NotFound) },
 ];

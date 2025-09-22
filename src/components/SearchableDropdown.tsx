@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { ChevronDown } from "lucide-react";
 
 interface Option {
     id: string | number;
@@ -25,56 +26,59 @@ export const SearchableDropdown: React.FC<SearchableDropdownProps> = ({
     const [search, setSearch] = useState("");
     const ref = useRef<HTMLDivElement>(null);
 
-    // Close dropdown when clicked outside
+    // close on outside click
     useEffect(() => {
-        const handleClickOutside = (e: MouseEvent) => {
+        const handler = (e: MouseEvent) => {
             if (ref.current && !ref.current.contains(e.target as Node)) {
                 setOpen(false);
-                setSearch("");
             }
         };
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
+        document.addEventListener("mousedown", handler);
+        return () => document.removeEventListener("mousedown", handler);
     }, []);
 
-    // Filter options based on search
-    const filteredOptions = options.filter(opt =>
+    const filtered = options.filter(opt =>
         opt.label.toLowerCase().includes(search.toLowerCase())
     );
 
-    const handleSelect = (option: Option) => {
-        onChange?.(option);
+    const selectOption = (opt: Option) => {
+        onChange?.(opt);
+        setSearch(opt.label);       // show chosen label
         setOpen(false);
-        setSearch("");
     };
+
+    console.log("filtered", search, filtered)
+
 
     return (
         <div ref={ref} className={cn("relative w-full", className)}>
-            {/* Input box */}
-            <div
-                className="border rounded-md px-3 py-2 flex justify-between items-center cursor-pointer"
-                onClick={() => setOpen(prev => !prev)}
-            >
-                <input
+            <div className="border border-secondary-300 rounded-lg p-3 flex justify-between items-center">
+                {open ? <input
                     type="text"
                     placeholder={placeholder}
-                    value={open ? search : value?.label || ""}
-                    onChange={e => setSearch(e.target.value)}
-                    onFocus={() => setOpen(true)}
-                    className="w-full outline-none cursor-pointer"
-                />
-                <span className="ml-2">&#9662;</span> {/* dropdown arrow */}
+                    value={search || value?.label || ""}
+                    onChange={e => {
+                        setSearch(e.target.value);
+                        if (!open) setOpen(true);
+                    }}
+                    autoFocus
+                    className="flex-1 outline-none"
+                /> : <button className="w-full flex justify-start items-center text-primary-800 text-base font-normal" onClick={() => setOpen(true)}>{value?.label || placeholder}</button>
+                }
+                <ChevronDown />
             </div>
 
-            {/* Options list */}
             {open && (
-                <ul className="absolute z-10 w-full mt-1 max-h-60 overflow-auto border rounded-md bg-white shadow-lg">
-                    {filteredOptions.length > 0 ? (
-                        filteredOptions.map(opt => (
+                <ul className="absolute z-10 w-full mt-1 max-h-60 overflow-auto border rounded-md bg-white shadow-lg bg-white-100">
+                    {filtered.length ? (
+                        filtered.map((opt, index) => (
                             <li
-                                key={opt.id}
+                                key={`${opt.id}-${opt.label}-${index}`}
                                 className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
-                                onClick={() => handleSelect(opt)}
+                                onMouseDown={e => {
+                                    e.preventDefault();
+                                    selectOption(opt);
+                                }}
                             >
                                 {opt.label}
                             </li>

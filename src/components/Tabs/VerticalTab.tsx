@@ -1,4 +1,5 @@
-import React, { useState, useCallback, memo, ReactNode } from "react";
+import React, { useState, useCallback, memo } from "react";
+import type { ReactNode } from "react"
 import { cn } from "@/lib/utils";
 
 interface Tab {
@@ -30,24 +31,24 @@ const TabsComponent: React.FC<TabsProps> = ({ tabs, initialTab, onTabChange }) =
     return (
         <div className="flex flex-col md:flex-row gap-4">
             <div className="flex w-auto">
-                <ul className="w-auto flex flex-col justify-center items-start font-medium text-center border-r border-red-900">
+                <ul className="w-auto flex flex-col gap-3 justify-start items-start font-medium text-center pr-10 border-r border-secondary-900">
                     {tabs.map((tab) => {
 
                         const isActive = activeTab === tab.value;
 
                         const baseClasses =
                             "inline-block w-full py-2 border-gray-200 border-l-4 ";
-                        const activeClasses = " text-primary-900 border-l-4 border-[#604ED5]  font-semibold";
+                        const activeClasses = " text-primary-900 border-l-4 border-primary-900  font-semibold";
                         const inactiveClasses = "border-transparent";
 
                         return (
-                            <li key={tab.value} className=" focus-within:z-10">
+                            <li key={tab.value} className="focus-within:z-10">
                                 <button
                                     onClick={() => handleChange(tab.value)}
                                     className={cn(
                                         baseClasses,
                                         isActive ? activeClasses : inactiveClasses,
-                                        "px-5 text-primary-400 text-base font-normal "
+                                        "px-5 text-primary-400 text-base font-normal whitespace-nowrap"
                                     )}
                                 >
                                     {tab.label}
@@ -59,7 +60,7 @@ const TabsComponent: React.FC<TabsProps> = ({ tabs, initialTab, onTabChange }) =
             </div>
 
             {/* Active Tab Content */}
-            <div className="mt-4">
+            <div className="w-full">
                 {activeTabContent}
             </div>
         </div>

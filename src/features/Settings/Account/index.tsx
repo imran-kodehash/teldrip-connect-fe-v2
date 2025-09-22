@@ -11,7 +11,7 @@ const PrivacyAndSecurity = lazy(() => import('./PrivacyAndSecurity'));
 
 const Account = () => {
     return (
-        <div className='p-6 bg-secondary-600 w-full rounded-lg'>
+        <div className='p-5 bg-secondary-600  rounded-lg w-full'>
             <VerticalTabs
                 tabs={[
                     {

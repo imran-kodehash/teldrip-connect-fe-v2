@@ -31,14 +31,14 @@ const TabsComponent: React.FC<TabsProps> = ({ tabs, initialTab, onTabChange }) =
     return (
         <div className="w-full">
             <div className="flex w-auto">
-                <ul className="w-auto flex font-medium text-center rounded-full border border-secondary-200">
+                <ul className="w-auto flex font-medium text-center rounded-full border-2 border-secondary-300">
                     {tabs.map((tab) => {
 
                         const isActive = activeTab === tab.value;
 
                         const baseClasses =
                             "inline-block w-full py-1 border-gray-200";
-                        const activeClasses = "bg-primary-200 text-primary-900 border border-[#604ED5] rounded-full font-medium";
+                        const activeClasses = "bg-primary-200 text-primary-900 border border-primary-900 rounded-full font-medium";
                         const inactiveClasses = "";
 
                         return (

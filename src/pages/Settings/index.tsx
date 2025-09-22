@@ -1,9 +1,10 @@
 import { HorizontalTabs } from '@/components/Tabs/HorizontalTab'
 import Account from '@/features/Settings/Account'
+import Calling from '@/features/Settings/Calling'
 
 const Settings = () => {
     return (
-        <div className='p-5 bg-white flex flex-col justify-start items-start w-full'>
+        <div className='p-5 bg-white-100 flex flex-col justify-start items-start w-full rounded-lg'>
             <HorizontalTabs initialTab="account"
                 tabs={[
                     {
@@ -14,7 +15,7 @@ const Settings = () => {
                     {
                         label: "Calling",
                         value: "calling",
-                        content: <div>Dashboard Content</div>,
+                        content: <Calling />
                     },
                     {
                         label: "Messaging",

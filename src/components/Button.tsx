@@ -48,7 +48,7 @@ const ButtonComponent = ({
                 baseClasses,
                 variantClasses[variant],
                 isDisabled && "opacity-50 cursor-not-allowed",
-                "inline-flex items-center justify-center min-w-[100px]", // ensures min width
+                "inline-flex items-center justify-center min-w-[100px] text-white-100",
                 className
             )}
             {...props}
