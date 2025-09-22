@@ -4,10 +4,12 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import AuthLayout from "@/layouts/AuthLayout";
 import { Input } from "@/components/Input";
-import loginImage from "@/assets/images/sign-in.png";
+import forgetImg from "@/assets/images/forgot-password.png";
 // import googleIcon from "@/assets/images/icon/google.svg";
-import { Button } from "@/components/Button";
-import { Link } from "react-router-dom";
+import fIcon from "@/assets/images/lock.svg";
+import Button from "@/components/Button";
+import { Link, useNavigate } from "react-router-dom";
+import { Image } from "@/components/Image";
 
 // import { Button } from "@/components/ui/button";
 
@@ -15,11 +17,20 @@ function ForgetPassword() {
   return (
     <div>
       <AuthLayout
-        imageSrc={loginImage}
+        imageSrc={forgetImg}
         imageAlt="Login background"
-        overlayTitle="Welcome to Teldrip"
-        overlaySubtitle="Sign in to continue"
+        overlayTitle="Smart Call Automation for Modern Teams"
+        overlaySubtitle="Teldrip Connect automates calling, logs business interactions, and delivers actionable insights—all seamlessly integrated with your favorite workflow tools for effortless communication and productivity."
       >
+        <div className="text-center w-full">
+          <Image
+            src={fIcon}
+            alt="Lock"
+            width={60}
+            height={80}
+            className="!w-[80px] mx-auto"
+          />
+        </div>
         <h5 className="text-center font-medium text-black text-xl mb-5">
           Forgot Password?
         </h5>
@@ -40,6 +51,9 @@ function ForgetPassword() {
           </div>
 
           <Button label={"Reset Password"} />
+          <p>
+            <Link to="/reset-password">Reset Password </Link>
+          </p>
           <p className="-mt-2 text-center text-sm text-primary-400">
             <Link to="/sign-in" className="text-primary">
               Go Back Sign In

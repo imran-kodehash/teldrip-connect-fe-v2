@@ -1,13 +1,16 @@
-import React, { lazy, Suspense } from 'react';
-import type { RouteObject } from 'react-router-dom';
-import MainLayout from './layouts/MainLayout';
-import PageLoader from './components/loaders/PageLoader';
+import React, { lazy, Suspense } from "react";
+import type { RouteObject } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
+import ResetPassword from "./pages/Auth/ResetPassword";
+import PageLoader from "./components/loaders/PageLoader";
 // import LoadingSpinner from '@/components/LoadingSpinner';
 // import ProtectedRoute from '@/components/ProtectedRoute';
 // import MainLayout from '@/layouts/MainLayout';
 
 const Login = lazy(() => import("@/pages/Auth/Login"));
 const ForgetPassword = lazy(() => import("@/pages/Auth/ForgetPassword"));
+const ResetPassword = lazy(() => import("@/pages/Auth/ResetPassword"));
+const SignUp = lazy(() => import("@/pages/Auth/Signup"));
 const Dashboard = lazy(() => import("@/pages/Dashboard"));
 const Numbers = lazy(() => import("@/pages/Numbers"));
 // const Users = lazy(() => import('@/pages/Dashboard/Users'));
@@ -36,9 +39,17 @@ export const routes: RouteObject[] = [
     path: "/forget-password",
     element: Loadable(ForgetPassword), // public route
   },
+  {
+    path: "/sign-up",
+    element: Loadable(SignUp), // public route
+  },
+  {
+    path: "/reset-password",
+    element: Loadable(ResetPassword), // public route
+  },
 
   {
-    path: '/',
+    path: "/",
     element: (
       // <ProtectedRoute>
       <MainLayout />
@@ -58,6 +69,7 @@ export const routes: RouteObject[] = [
           // { path: 'settings', element: <Loadable(NumbersSettings) /> },
         ],
       },
+
       // { path: 'contacts', element: Loadable(Contacts) },
       { path: 'settings', element: Loadable(Settings) },
     ],
