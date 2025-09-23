@@ -28,7 +28,10 @@ export default {
         white: {
           100: "#ffffff",
         },
-
+        red: {
+          100: "#F07676",
+          200: "#ed5a5a",
+        },
         success: {
           100: "#DDFCE5",
           200: "#D3FBFA",

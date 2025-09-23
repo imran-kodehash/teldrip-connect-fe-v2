@@ -6,7 +6,7 @@ import loginImage from "@/assets/images/signup.png";
 // import { Image } from "@/components/Image";
 // import { GoalIcon } from "lucide-react";
 import { Image } from "@/components/Image";
-import Button from "@/components/Button";
+import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 
 function Otp() {

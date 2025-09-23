@@ -7,7 +7,7 @@ import { Input } from "@/components/Input";
 import forgetImg from "@/assets/images/forget-password.png";
 // import googleIcon from "@/assets/images/icon/google.svg";
 import fIcon from "@/assets/images/lock.svg";
-import Button from "@/components/Button";
+import { Button } from "@/components/Button";
 import { Link } from "react-router-dom";
 import { Image } from "@/components/Image";
 

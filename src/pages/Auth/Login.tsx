@@ -7,7 +7,7 @@ import { Input } from "@/components/Input";
 import loginImage from "@/assets/images/signup.png";
 
 import googleIcon from "@/assets/images/google-icon.png";
-import Button from "@/components/Button";
+import { Button } from "@/components/Button";
 import { Link, useNavigate } from "react-router-dom";
 // import { Image } from "@/components/Image";
 // import { GoalIcon } from "lucide-react";
